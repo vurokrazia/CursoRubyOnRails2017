@@ -1,0 +1,17 @@
+.py-5
+  .container
+    .row
+      =render "home/panel"
+      .col-md-9
+        .card.p-2
+          .card-body
+            %h1.mb-3.text-center.text-capitalize= params[:action]
+            .row
+              .col-md-3
+                = link_to "Categorias", categories_path, class:"btn btn-primary btn-block"
+              .col-md-3
+                = link_to "Nueva categoria", new_category_path, class:"btn btn-primary btn-block"
+              .col-md-3
+                = link_to "Productos", products_path, class:"btn btn-primary btn-block"
+              .col-md-3
+                = link_to "Nuevo producto", new_product_path, class:"btn btn-primary btn-block"

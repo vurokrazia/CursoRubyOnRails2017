@@ -1,0 +1,14 @@
+- unless notice.nil?
+  .col-md-12
+    .alert.alert-info.alert-dismissible.fade.show.my-3{:role => "alert"}
+      %strong Mensaje:
+      =notice  
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×
+- unless alert.nil?
+  .col-md-12
+    .alert.alert-warning.alert-dismissible.fade.show.my-3{:role => "alert"}
+      %strong Alerta
+      =alert
+      %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+        %span{"aria-hidden" => "true"} ×

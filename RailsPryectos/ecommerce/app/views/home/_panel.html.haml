@@ -1,0 +1,19 @@
+.col-md-3
+  .card
+    .card-body
+      %ul.nav.nav-pills.flex-column.my-2
+        - if current_user.is_admin?
+          %li.nav-item
+            =link_to "Administrador", home_administrador_path, class:"nav-link"
+        %li.nav-item
+          =link_to "Resumen", home_summary_path, class:"nav-link"
+        %li.nav-item
+          =link_to "Reputación", home_reputation_path, class:"nav-link"
+        %li.nav-item
+          =link_to "Compras", home_purchases_path, class:"nav-link"
+        %li.nav-item
+          =link_to "Productos", home_products_path, class:"nav-link"
+        %li.nav-item
+          =link_to "Ventas", home_sales_path, class:"nav-link"
+        %li.nav-item
+        = link_to "Configuración",  edit_user_registration_path,class:"nav-link"

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Prueba de formulario</title>
+	</head>
+	<style type="text/css" media="screen">
+		
+	</style>
+	<body style="background: green;">
+
+		<form action="formulario.html" method="get">
+			Ingrese su nombre:
+			<input type="text" name="nombre" size="50" style="background: #AEF648; color: blue;">
+			<br>
+			Ingrese su edad:
+			<input type="number" name="edad" size="40" style="background: #AEF648; color: blue;">
+			<br>
+			Ingrese su contraseña:
+			<input type="password" name="password" size="40" style="background: #AEF648; color: blue;">
+			<br>
+			Ingrese su descripcion de ti:
+			<textarea name="descripcion"></textarea>
+
+			Seleccione los lenguajes que conoce:
+			<br>
+			<input type="checkbox" name="java">Java<br>
+			<input type="checkbox" name="cmasmas">C++<br>
+			<input type="checkbox" name="c">C<br>
+			<input type="checkbox" name="ruby">Ruby<br>
+
+
+			Seleccione el máximo nivel de estudios que tiene:
+			<br>
+			<input type="radio" name="estudios" value="1">Sin 
+			estudios<br>
+			<input type="radio" name="estudios" value="2">Primaria<br>
+			<input type="radio" name="estudios" value="3">Secundario<br>
+			<input type="radio" name="estudios" value="4">Universitario<br>
+
+			Seleccione uno o varios colores (Presione Ctrl para seleccionar varios colores)<br>
+			<select name="colores[]" size="6" multiple>
+				<option value="1">Rojo</option>
+				<option value="2">Verde</option>
+				<option value="3">Azul</option>
+				<option value="4">Amarillo</option>
+				<option value="5">Blanco</option>
+				<option value="6">Negro</option>
+				<option value="7">Naranja</option>
+				<option value="8">Violeta</option>
+			</select>
+			<br>
+			<input type="submit" value="ok">
+			<input type="reset" value="restaurar">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+.py-5
+  .container
+    .row
+      =render "home/panel"
+      .col-md-9
+        .card.p-2
+          .card-body
+            %h1.mb-3.text-center.text-capitalize= params[:action]
+            %h3.mb-2.text-center Productos
+            %ul.list-group
+              %li.list-group-item.d-flex.justify-content-between.align-items-center
+                Disponibles
+                %span.badge.badge-pill.badge-primary 4
+              %li.list-group-item.d-flex.justify-content-between.align-items-center
+                Agotados
+                %span.badge.badge-primary.badge-pill 2
+              %li.list-group-item.d-flex.justify-content-between.align-items-center
+                Vendidos
+                %span.badge.badge-primary.badge-pill 1

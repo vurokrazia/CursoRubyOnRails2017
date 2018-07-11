@@ -1,0 +1,30 @@
+.container.py-5
+  .row
+    .col-md-12 
+      .card
+        .card-body
+          %h1.text-center.my-5= title ||= "Titulo"
+          = form_for @product, builder: BootstrapFormBuilder  do |f|
+            .row 
+              = f.errors
+              = f.label :name
+              = f.text_field :p_name
+              = f.label :description
+              = f.text_area :p_description
+              = f.label :price
+              = f.text_field :p_price
+              = f.label :quantify
+              = f.number_field :p_quantify
+              = f.label :send
+              = f.text_field :p_send
+              = f.label :available
+              = f.check_box :p_available
+              - Category.all.each do |category|
+                .col-md-4.my-5
+                  = check_box_tag "categories[]", category.id
+                  = category.name
+            .row
+              .offset-md-2
+              = f.submit 'Save'
+              .col-md-4
+                = link_to "Atrás", home_administrador_path, class: "btn btn-secondary btn-block"

@@ -1,0 +1,31 @@
+.container.py-5
+  .row
+    .col-md-12
+      .card
+        .card-body
+          .row
+            .col-12
+              %h1.text-center Listing categories
+            .offset-md-3.col-md-3.my-4
+              = link_to 'New Category', new_category_path,class:"btn btn-block btn-primary"
+            .col-md-3.my-4
+              = link_to 'Atrás', home_administrador_path,class:"btn btn-block btn-primary"
+            .col-md-12.table-responsive
+              %table.table
+                %thead
+                  %tr
+                    %th Name
+                    %th Description
+                    %th C img
+                    %th
+                    %th
+                    %th
+                %tbody
+                  - @categories.each do |category|
+                    %tr
+                      %td= category.name
+                      %td= category.description
+                      %td= category.c_img
+                      %td= link_to 'Show', category,class:"btn btn-block btn-primary"
+                      %td= link_to 'Edit', edit_category_path(category),class:"btn btn-block btn-primary"
+                      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-block btn-primary"

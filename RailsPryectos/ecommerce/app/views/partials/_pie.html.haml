@@ -1,0 +1,25 @@
+.py-5.bg-dark.text-white
+  .container
+    .row
+      .col-md-6.text-center.align-self-center
+        %p.mb-5
+          %strong Pingendo Inc.
+          = succeed "795" do
+            %br/
+          = succeed "San" do
+            %br/
+          %br/
+          %abbr{:title => "Phone"} P:
+          (123) 456-7890
+        .my-3.row
+          .col-4
+            %a{:href => "https://www.facebook.com/codigovurokrazia", :target => "_blank"}
+              %i.fa.fa-3x.fa-facebook
+          .col-4
+            %a{:href => "https://twitter.com/vurokrazia", :target => "_blank"}
+              %i.fa.fa-3x.fa-twitter
+          .col-4
+            %a{:href => "https://www.instagram.com", :target => "_blank"}
+              %i.fa.fa-3x.fa-instagram
+      .col-md-6.p-0
+        %img.img-fluid{:src => "#{image_url 'mapa.png'}"}/
