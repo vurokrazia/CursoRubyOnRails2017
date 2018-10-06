@@ -1,7 +1,0 @@
-I"Š(function() {
-  $document.on("ajax:success", "form#cmments-form", function(ev, data) {
-    return console.log.data;
-  });
-
-}).call(this);
-:ET
