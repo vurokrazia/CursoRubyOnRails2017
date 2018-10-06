@@ -1,0 +1,16 @@
+<div class="col-12 col-sm-6 col-md-4 col-lg-3 article-salto">
+	<div class="card h-100 article-container">
+		<%= link_to article do %>
+			<div class="card-body">
+				<%= image_tag article.img_art(:medium),class:"card-img-top" %>
+				<h2 class="card-title"><%= truncate(article.title,length:20) %></h2>
+				<p><%= truncate_html( article.body.html_safe, length:150) %></p>
+				<%temporal = "Categorias: "%>
+				<% article.categories.each do |category|%>
+					<%temporal = "#{temporal} #{category.name} "    %>
+				<%end%>
+				<p> <%= temporal%> </p>
+			</div>	
+		<%end%>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<style type="text/css" media="screen">
+	.jumbotron{
+		margin-top: 10px !important;
+	}
+	.categories-show{
+		background: <%=@category.color%> !important;		
+	}
+</style>
+<div class="categories-show">
+	<h1 class="text-center"><%= @category.name %></h1>
+	<h5 class="text-center">
+		<% if !@category.user.nil? %>
+			Creado por <strong><%= @category.user.email %></strong>
+		<%end%>	
+	</h5>
+</div>
+<div class="row">
+	<%= render @articles%>
+</div>
+<div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+	<%= will_paginate @articles %>		
+</div>

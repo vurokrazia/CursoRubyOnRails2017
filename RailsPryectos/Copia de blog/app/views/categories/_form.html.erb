@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="jumbotron space-a">
+        <fieldset>
+          <h1 class="text-center space-title form-title"><%="#{title} Categoria"%></h1>
+          <%= form_with(model: category, local: true) do |form| %>
+            <% if category.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+                <ul>
+                  <% category.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="form-group row">
+              <%= form.label :name, class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+              <%= form.text_field :name, id: :category_name, class:"col-md-4 form-control" %>
+            </div>
+            <div class="form-group row">
+              <%= form.label "Banner:", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right"%>
+              <%= form.file_field :cat_img, class:"col-md-4 form-control"%>
+            </div>
+            <div class="form-group row">
+              <%= form.label :color, class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+              <%= form.color_field :color, id: :category_color, class:"col-md-4 form-control" %>
+            </div>
+
+            <div class="form-group row">
+              <div class="container text-center">
+                  <%= form.submit "Aceptar" , class:"btn btn-info col-md-3"%>
+                <%= link_to "Atrás", articles_path, class:"btn btn-info col-md-3 "%>
+              </div>
+            </div>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>        
+  </div>
+</div>

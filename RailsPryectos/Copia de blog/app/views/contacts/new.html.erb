@@ -1,0 +1,32 @@
+<div class="container-fluid color-a">
+	<h1 class="text-center space-title form-title">Contactame</h1>
+	<%= form_with(model: @contact,local:true) do |f|%>
+		<% if    @contact.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(   @contact.errors.count, "error") %> prohibited this category from being saved:</h2>
+	        <ul>
+	          <%    @contact.errors.full_messages.each do |message| %>
+	            <li><%= message %></li>
+	          <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+		<div class="form-group row">
+			<%= f.label "Asunto", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+			<%= f.text_field :title, class:"col-md-4 form-control"%>
+		</div>
+		<div class="form-group row">
+			<%= f.label "Email", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+			<%= f.text_field :email, class:"col-md-4 form-control"%>
+		</div>
+		<div class="form-group row">
+			<%= f.label "Mensaje", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+			<%= f.text_area :description, class:"col-md-4 form-control"%>
+		</div>
+		<div class="form-group row">
+			<div class="container text-center">
+				<%= f.submit "Enviar correo" , class:"btn btn-info col-md-3" %>
+			</div>
+		</div>
+	<%end%>
+</div>

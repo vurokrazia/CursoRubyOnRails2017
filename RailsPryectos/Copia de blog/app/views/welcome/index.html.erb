@@ -1,0 +1,8 @@
+<% @articulos.each do |art| %>
+	<div class="jumbotron color-a">
+		<h2 class="text-center">
+			<%= link_to art.title, art,class:"title-text" %>	
+		</h2>
+		<p class="text-center"><%=art.body%></p>
+	</div>
+<%end%>

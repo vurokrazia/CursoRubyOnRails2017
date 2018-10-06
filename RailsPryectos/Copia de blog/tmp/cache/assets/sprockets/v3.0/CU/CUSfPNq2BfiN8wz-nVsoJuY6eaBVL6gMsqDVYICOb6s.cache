@@ -1,0 +1,7 @@
+I"ç(function() {
+  $(document).on("ajax:success", "form#contact-form", function(ev, data) {
+    return console.log(data);
+  });
+
+}).call(this);
+:ET

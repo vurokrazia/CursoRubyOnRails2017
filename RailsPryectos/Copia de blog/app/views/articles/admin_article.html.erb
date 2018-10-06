@@ -1,0 +1,34 @@
+<div class="jumbotron  table-responsive">
+	<h1>Administrador</h1>
+	<p><%=link_to "Normal",articles_path(normal:true),class:"btn btn-success"%></p>
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Titulo</th>
+	      <th scope="col">Autor</th>
+	      <th scope="col">Fecha</th>
+	      <th scope="col" class="text-center">Acciones</th>
+	    </tr>
+	  </thead>
+	  <tbody class="color-d">
+	    
+	    <% @articulos.each do |art| %>
+				<tr scope="row" class="white-text text-center">
+					<td><%=art.id%></td>
+					<td><%=art.title%></td>
+					<td><%=art.user.email%></td>
+					<td><%=art.created_at.strftime("%B, %d, %Y %H:%M")%></td>
+					<td>
+						<%=link_to "Editar", edit_article_path(art), class:"btn btn-warning	"%>
+						<%=link_to "Ver", art, class:"btn btn-info"%>
+						<%=link_to "Eliminar", art, method: :delete, data:{confirm:"¿Desea eliminar?"}, class:"btn btn-danger"%>
+					</td>
+				</tr>
+				<%end%>
+	  </tbody>
+	</table>	
+	<div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+    	<%= will_paginate @articulos %>		
+	</div>
+</div>

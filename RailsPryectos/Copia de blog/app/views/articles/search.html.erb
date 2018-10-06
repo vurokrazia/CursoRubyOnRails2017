@@ -1,0 +1,20 @@
+<div class="jumbotron color-e search-jumbotron">
+	<div class="row">
+		<% unless @articles.blank? %>
+			<% @articles.each do |art| %>
+					<div class="col-md-6 search-fondo">
+						<div class="">
+							<h1><%= link_to art.title, art,class:"search-title" %></h1>
+							<p class="search-body"><%= truncate_html(art.body, length: 300) %></p>
+							<p class="text-right"><%= link_to "Ver más", art, class:"btn btn-success" %></p>
+						</div>
+					</div>
+			<%end%>
+		<%else%>
+			<div class="col-md-10 offset-md-1 search-fondo">
+				<h1 class="text-center">Lo siento...</h1>
+				<p class="text-center">No se encuentran coincidencias con <%="\"#{params[:titulo]}\""%>.</p>
+			</div>
+		<%end%>
+	</div>	
+</div>

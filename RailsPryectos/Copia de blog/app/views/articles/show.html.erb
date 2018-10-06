@@ -1,0 +1,50 @@
+<div class="jumbotron">
+	<h1 class="text-center"><%= @article.title%></h1>
+	<% if user_signed_in? && current_user.is_editor? %>
+		<div class="row">
+			<div class="col-12 col-md-4 offset-md-4">
+				<%= link_to "Editar", edit_article_path(@article) , class:"btn btn-warning btn-block "%>				
+			</div>			
+		</div>
+	<%end%>
+	<div class="article-html">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">			
+				<div class="text-center">
+				<%= image_tag @article.img_art, class:"img-fluid" %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 offset-md-3 col-12">
+				<%if !@article.user.nil? %>	
+					<p><%= @article.user.email %></p>
+				<%end%>
+				<% @article.categories.each do |category| %>
+					<span class="badge badge-primary"><%=link_to category.name, category, style:"color:#fff; font-size: 17px;"%></span>
+				<%end%>
+				<%= @article.body.html_safe%>
+				<% if user_signed_in? %>
+					<%= render "comments/form", comment: @comment %>
+				<%end%>
+				<ul>
+					<% @article.comments.each do |comment| %>
+						<li>
+							<div class="row">
+								<div class="col-md-8">
+									<%=comment.user.email%>: <%=comment.body%>
+								</div>
+								<div class="col-md-4">
+									<% if user_signed_in? && current_user == comment.user %>
+										<%=link_to "Editar", edit_article_comment_url(@article,comment),class:"btn btn-warning text-white"%>
+										<%=link_to "Eliminar", [@article,comment], data:{confirm: "¿Estas seguro?", :method => :delete},class:"btn btn-danger  text-white"%>
+									<% end %>
+								</div>
+							</div>
+						</li>
+					<%end%>
+				</ul>
+			</div>	
+		</div>
+	</div>
+</div>	

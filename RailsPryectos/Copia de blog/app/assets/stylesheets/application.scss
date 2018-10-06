@@ -1,0 +1,201 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require trix
+ *= require_tree .
+ *= require_self
+ */
+
+$title: #000;
+$fondo: #fff;
+$color-a: #F3F2B4;
+$color-b: #FFFFD3;
+$color-c: #F4806D;
+$color-d: #C02727;
+$color-e: #CCFFFF;
+$search-title: #336633;
+$search-body: #669900;
+$colors : (
+	white: #fff,
+	jumbotron:$color-a, 
+	title: $title,
+	fondo: $fondo,
+	color-a:$color-a,
+	color-b:$color-b,
+	color-c:$color-c,
+	color-d:$color-d
+);
+.text-white{
+	color: white;
+}
+body{
+	background-color: $fondo;
+}
+.btn-boton{
+	border-color:  #c00 !important;
+	background: #c00 !important;
+	color:white;
+}
+.article-img{
+	justify-content: center !important;	
+}
+.article-html{
+	div{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	a{
+		color: #25CC18;
+		font-family: bold;
+	}
+	pre{
+		background: gold;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 5px;
+		padding-top: 5px;
+		font-family:  bold !important;
+		font-size: 18px;
+	}
+	ul{
+		padding-top: 5px;
+		padding-bottom: 5px;
+		li{
+			list-style: square;
+		}
+	}
+}
+@each $color_name,$color in $colors{
+	.#{$color-name}{
+		background-color: $color  !important;
+	}
+	.#{$color-name}-text{
+		color: $color !important;
+	}
+}
+nav{
+	margin-bottom: 10px;
+}
+.btn{
+	margin-bottom: 10px !important;
+}
+.form-title{
+	font-size: 48px;
+}
+.list-group{
+	margin-bottom: 10px;
+}
+.nav-link{
+	color: white !important;
+}
+.space-a{
+	margin-top: 15px;
+}
+.space-title{
+	padding-top: 20px !important;
+	padding-bottom: 40px !important;
+}
+.space-label-right{
+	padding-right: 30px;
+}
+.form-title{
+		font-style: bold !important;
+}
+.col-form-label{
+	font-style: italic;
+	font-size: 18px;
+}
+.salto{
+	margin-bottom: 20px;
+}
+.search-title{
+	font-size: 48px !important;
+	color: $search-title;
+}
+.search-body{
+	color: $search-body;
+}
+.search-title:hover{
+	font-size: 49px !important;
+	color: black;
+}
+.search-jumbotron{
+	padding-top: 13px !important;
+	padding-bottom: 13px !important;
+}
+.search-fondo:hover{
+		background-color: #66CCFF !important;
+}
+.article-salto{
+	margin-bottom: 30px;
+}
+.article-container > h1 > a {
+
+}
+.categories-container,.article-container{
+	background: $color-a;
+	h2,p,a{
+		color:black;
+	}
+	h2{
+		a{
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+		}
+	}
+}
+.categories-show{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.pagination{
+    justify-content: center;
+}
+.flickr_pagination {
+  justify-content: center;
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; 
+}
+.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+    padding: 0.2em 0.5em; 
+}
+  .flickr_pagination .disabled {
+    color: #aaaaaa; }
+  .flickr_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #ff0084; }
+  .flickr_pagination a {
+    border: 1px solid #dddddd;
+    color: #0063dc;
+    text-decoration: none; }
+    .flickr_pagination a:hover, .flickr_pagination a:focus {
+      border-color: #003366;
+      background: #0063dc;
+      color: white; }
+  .flickr_pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em; }
+  .flickr_pagination .previous_page, .flickr_pagination .next_page {
+    border-width: 2px; }
+  .flickr_pagination .previous_page {
+    margin-right: 1em; }
+  .flickr_pagination .next_page {
+    margin-left: 1em; }
+
+
+
+
+

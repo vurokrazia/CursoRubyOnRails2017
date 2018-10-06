@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+	<% if current_user.is_editor? %>
+	<div class="list-group">
+		<%=link_to "Administrador", root_path, class:"list-group-item list-group-item-action active"%>
+		<%=link_to "Ver articulos", articles_path, class:"list-group-item list-group-item-action"%>
+		<%=link_to "Crear articulo", new_article_path , class:"list-group-item list-group-item-action"%>	
+		<%=link_to "Ver categorias", categories_path, class:"list-group-item list-group-item-action"%>
+		<%=link_to "Crear categoria", new_category_path , class:"list-group-item list-group-item-action"%>	
+	</div>
+	<%end%>
+<%end%>
+<div class="list-group">
+  <%=link_to "Categorias", categories_path, class:"list-group-item list-group-item-action active"%>
+  <%@categorias.each do |categoria| %>
+    <%= link_to categoria.name, categoria , class:"list-group-item list-group-item-action"%>
+  <%end%>
+</div>

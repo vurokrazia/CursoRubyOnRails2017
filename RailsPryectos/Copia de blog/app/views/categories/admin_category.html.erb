@@ -1,0 +1,28 @@
+<div class="jumbotron table-responsive">
+	<h1>Administrador</h1>
+	<p><%=link_to "Normal",categories_path(normal:true),class:"btn btn-success"%></p>
+	<div class="table-responsive">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Titulo</th>
+					<th>Fecha</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody class="color-d">
+				<% @categories.each do |cat| %>
+				<tr class="white-text">
+					<td><%=cat.name%></td>
+					<td><%=cat.created_at.strftime("%B, %d, %Y %H:%M")%></td>
+					<td>
+						<%=link_to "Editar", edit_category_path(cat), class:"btn btn-warning	"%>
+						<%=link_to "Ver", cat, class:"btn btn-info"%>
+						<%=link_to "Eliminar", cat, method: :delete, data:{confirm:"¿Desea eliminar?"}, class:"btn btn-danger"%>
+					</td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+</div>
