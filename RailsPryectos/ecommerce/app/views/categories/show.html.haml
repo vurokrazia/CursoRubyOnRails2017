@@ -3,12 +3,28 @@
     .col-12
       .card
         .card-body
-          %h1.text-center= @category.name
-          - if can? :update, @category
-            .row
-              .offset-md-3.col-md-3
-                = link_to 'Edit', edit_category_path(@category),class:"btn btn-primary btn-block"
-              .col-md-3
-                = link_to 'Back', categories_path,class:"btn btn-secondary btn-block"
-          %p= @category.description
-          =image_tag @category.c_img, class: "img-fluid"
+          .row
+            .col-9
+              .row
+                .col-12
+                  %h1.text-center= @category.name
+                - if can? :update, @category
+                  .offset-md-3.col-md-3
+                    = link_to 'Edit', edit_category_path(@category),class:"btn btn-primary btn-block"
+                  .col-md-3
+                    = link_to 'Back', categories_path,class:"btn btn-secondary btn-block"
+                .col-12
+                  %p.my-2= @category.description
+            .col-3
+              =image_tag @category.c_img, class: "img-fluid"
+  .row
+    -@category.products.each do |product|
+      .col-md-4.my-5
+        .card.h-100
+          .card-body
+            %p=product.p_name
+            %p=truncate(product.p_description,length:150)
+            .text-right
+              =link_to "Show",product,class:"btn btn-info my-3"
+              -if can? :update, product
+                =link_to "Editar",edit_product_path(product),class:"btn btn-info my-3"

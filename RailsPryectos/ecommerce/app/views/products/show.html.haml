@@ -8,12 +8,45 @@
               .col-md-4.offset-md-2
                 = link_to 'Edit', edit_product_path(@product),class:"btn btn-primary btn-block"
               .col-md-4 
-                = link_to 'Back', products_path,class:"btn btn-secondary btn-block"
+                = link_to 'Add image', new_product_myimage_path(@product),class:"btn btn-secondary btn-block"
       .card
         .card-body
           .row
-            .col-md-12.my-5 
-              = image_tag "",class:"fluid-img"
+            .col-12
+              #carouselExampleIndicators.carousel.slide{"data-ride" => "carousel"}
+                %ol.carousel-indicators
+                  - flag = false
+                  - cont = 0
+                  - @product.myimages.ids.each do |con|
+                    - if flag
+                      %li{"data-slide-to" => "#{cont}", "data-target" => "#carouselExampleIndicators"}
+                    - else  
+                      %li.active{"data-slide-to" => "#{cont}", "data-target" => "#carouselExampleIndicators"}
+                      - flag = true
+                    - cont = cont + 1
+                .carousel-inner
+                  - flag = false
+                  -@product.myimages.each do |image|
+                    - if flag  
+                      .carousel-item
+                        = image_tag image.img.url(:big),class:"d-block w-100"
+                        .carousel-caption.d-none.d-md-block
+                          =render "buttons",img:image
+                    - else
+                      .carousel-item.active
+                        = image_tag image.img.url(:big),class:"d-block w-100"
+                        - flag = true
+                        .carousel-caption.d-none.d-md-block.info
+                          =render "buttons",img:image
+
+                          
+
+                %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+                  %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+                  %span.sr-only Previous
+                %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+                  %span.carousel-control-next-icon{"aria-hidden" => "true"}
+                  %span.sr-only Next
             .col-md-12
               %h1= @product.p_name
               %p= @product.p_description

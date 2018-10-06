@@ -24,4 +24,6 @@ class Category < ApplicationRecord
     validates_attachment_content_type :c_img, content_type: /\Aimage\/.*\z/
     validates :name, presence: true, length: {minimum: 10, too_short: "Minimo son %{count} caracteres." }
     validates :description, presence: true, length: {minimum: 50, too_short: "Minimo son %{count} caracteres." }
+  has_many :has_categories, :dependent => :destroy
+  has_many :products, through: :has_categories, :dependent => :destroy
 end

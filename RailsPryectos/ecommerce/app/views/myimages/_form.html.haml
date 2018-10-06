@@ -1,0 +1,20 @@
+.container.py-5
+  .row
+    .col-md-12 
+      .card
+        .card-body
+          %h1.text-center.my-5= title ||= "Titulo"
+          = form_for [@product , @myimage], builder: BootstrapFormBuilder  do |f|
+            .row 
+              = f.errors
+              = f.label :title
+              = f.text_field :title
+              = f.label :description
+              = f.text_area :description
+              = f.label :image
+              = f.file_field :img
+            .row
+              .offset-md-2
+              = f.submit 'Save'
+              .col-md-4
+                = link_to "Atrás", home_administrador_path, class: "btn btn-secondary btn-block"

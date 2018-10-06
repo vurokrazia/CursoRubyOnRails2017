@@ -10,9 +10,6 @@
               = f.errors
               = f.label :email
               = f.email_field :email, autofocus: true
-              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-                %div
-                  
               = f.label "password (leave blank if you don't want to change it)"
               = f.password_field :password, autocomplete: "off"
               = f.label "password_confirmation #{@minimum_password_length} characters minimum"
@@ -38,9 +35,4 @@
               = f.submit "Update",class:"my-5"
               .col-md-4
                 = link_to "Regresar", root_path, class:"btn btn-secondary btn-block my-5"
-            .row
-              .col-md-4.offset-md-4
-                %h2.my-5 Cancel my account
-              .col-md-4
-                %p.my-5
-                  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'}
+            

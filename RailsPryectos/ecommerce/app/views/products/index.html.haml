@@ -1,33 +1,41 @@
-%h1 Listing products
+.container.py-5
+  .row
+    .col-md-12 
+      .card
+        .card-body
+          %h1.text-center.my-5= title ||= "Titulo"
 
-%table
-  %thead
-    %tr
-      %th P name
-      %th P description
-      %th P price
-      %th P quantify
-      %th P send
-      %th P available
-      %th User
-      %th
-      %th
-      %th
+          %h1 Listing products
 
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= product.p_name
-        %td= product.p_description
-        %td= product.p_price
-        %td= product.p_quantify
-        %td= product.p_send
-        %td= product.p_available
-        %td= product.user
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+          %table.table
+            %thead
+              %tr
+                %th name
+                %th description
+                %th price
+                %th quantify
+                %th send
+                %th available
+                %th User
+                %th
+                %th
+                %th
 
-%br
+            %tbody
+              - @products.each do |product|
+                %tr
+                  %td= product.p_name
+                  %td= truncate(product.p_description,length:50)
+                  %td= product.p_price
+                  %td= product.p_quantify
+                  %td= product.p_send
+                  %td= product.p_available
+                  %td= product.user.name
+                  %td= link_to 'Show', product
+                  %td= link_to 'Add image', new_product_myimage_path(product)
+                  %td= link_to 'Edit', edit_product_path(product)
+                  %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Product', new_product_path
+          %br
+
+          = link_to 'New Product', new_product_path
