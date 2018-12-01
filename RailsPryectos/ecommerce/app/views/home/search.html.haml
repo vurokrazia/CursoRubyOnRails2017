@@ -1,0 +1,17 @@
+.row
+  - if !@products.empty?
+    -@products.each do |product|
+      .col-12.col-sm-4
+        .card.my-2
+          .card-body
+            .row
+              .col-8.col-sm-4
+                %h4=product.p_name
+              .col-4.col-sm-8
+                - if !product.myimages.first.nil?
+                  =image_tag product.myimages.first.img.url, class:"img-fluid"
+
+  -else
+    .card
+      .card-body
+        %h1.text-center No existen coincidencias

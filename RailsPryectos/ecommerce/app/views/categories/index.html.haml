@@ -24,7 +24,7 @@
                   - @categories.each do |category|
                     %tr
                       %td= category.name
-                      %td= category.description
+                      %td=truncate(category.description,length:600)
                       %td= category.c_img
                       %td= link_to 'Show', category,class:"btn btn-block btn-primary"
                       %td= link_to 'Edit', edit_category_path(category),class:"btn btn-block btn-primary"

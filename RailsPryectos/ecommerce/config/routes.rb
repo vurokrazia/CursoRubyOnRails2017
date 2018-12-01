@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   end
   resources :categories
   devise_for :users
+  get 'home/search'
+  get 'home/car'
   get 'home/purchases'
   get 'home/history'
   get 'home/favorites'

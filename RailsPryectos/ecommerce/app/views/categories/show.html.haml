@@ -22,7 +22,7 @@
       .col-md-4.my-5
         .card.h-100
           .card-body
-            %p=product.p_name
+            %h4=product.p_name
             %p=truncate(product.p_description,length:150)
             .text-right
               =link_to "Show",product,class:"btn btn-info my-3"

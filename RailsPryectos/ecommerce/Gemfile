@@ -16,7 +16,9 @@ gem "haml-rails"
 gem "pry-rails"
 #Para ver los campos de la tabla en el modelo
 gem "annotate"
-gem "devise", '~> 4.3.0'
+
+gem 'devise', git: 'https://github.com/plataformatec/devise' #, ref: '88e9a85'
+
 gem "paperclip"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'

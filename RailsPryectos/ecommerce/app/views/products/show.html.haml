@@ -1,20 +1,23 @@
-.container
-  .row.my-5
-    .col-md-12
-      - if can? :edit, @product
-        .card.my-3
-          .card-body
-            .row
-              .col-md-4.offset-md-2
-                = link_to 'Edit', edit_product_path(@product),class:"btn btn-primary btn-block"
-              .col-md-4 
-                = link_to 'Add image', new_product_myimage_path(@product),class:"btn btn-secondary btn-block"
-      .card
-        .card-body
+.container-fluid
+  .card.shadonw-5.my-5
+    .card-body
+      .row
+        .col-md-8
+          %h1.text-center= @product.p_name
+          - if can? :edit, @product
+            .my-3
+              = link_to 'Edit', edit_product_path(@product),class:"btn btn-primary btn-block"
+              = link_to 'Add image', new_product_myimage_path(@product),class:"btn btn-secondary btn-block"
+          %p= @product.p_description
+          %p= "Costo: #{@product.p_price}"
+          %p= "En stock: #{@product.p_quantify}"
+          %p= "Costo envio: #{@product.p_send}"
+          %p= "Disponible: #{@product.p_available}"
+        .col-md-4
           .row
             .col-12
               #carouselExampleIndicators.carousel.slide{"data-ride" => "carousel"}
-                %ol.carousel-indicators
+                %ul.carousel-indicators
                   - flag = false
                   - cont = 0
                   - @product.myimages.ids.each do |con|
@@ -29,28 +32,19 @@
                   -@product.myimages.each do |image|
                     - if flag  
                       .carousel-item
-                        = image_tag image.img.url(:big),class:"d-block w-100"
-                        .carousel-caption.d-none.d-md-block
+                        = image_tag image.img.url(:big),class:"d-block w-100  img-fluid"
+                        .carousel-caption
                           =render "buttons",img:image
                     - else
                       .carousel-item.active
-                        = image_tag image.img.url(:big),class:"d-block w-100"
+                        = image_tag image.img.url(:big),class:"d-block w-100   img-fluid"
                         - flag = true
-                        .carousel-caption.d-none.d-md-block.info
+                        .carousel-caption
                           =render "buttons",img:image
-
-                          
-
                 %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
                   %span.carousel-control-prev-icon{"aria-hidden" => "true"}
                   %span.sr-only Previous
                 %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
                   %span.carousel-control-next-icon{"aria-hidden" => "true"}
                   %span.sr-only Next
-            .col-md-12
-              %h1= @product.p_name
-              %p= @product.p_description
-              %p= "Costo: #{@product.p_price}"
-              %p= "En stock: #{@product.p_quantify}"
-              %p= "Costo envio: #{@product.p_send}"
-              %p= "Disponible: #{@product.p_available}"
+        

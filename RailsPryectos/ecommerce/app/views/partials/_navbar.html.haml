@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-md.bg-secondary.navbar-dark
+%nav.navbar.navbar-expand-md
   .container
     %a.navbar-brand{:href => "#"} Commerce
     %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
@@ -19,11 +19,11 @@
           .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
             - @categories.each do |category|
               =link_to category.name, category,class:"dropdown-item"
-      %form.form-inline.m-0
-        %input.form-control.mr-2{:placeholder => "Buscar", :type => "text"}/
-        %button.btn.btn-primary{:type => "submit"} Search
-      %a.btn.btn-default.navbar-btn.mx-1.btn-primary.py-1
-        %i.fa.fa-fw.fa-shopping-cart.fa-lg  
+      = form_tag "/home/search", :method => :get, :class => 'form-inline m-0' do
+        = text_field_tag "find", nil , html: { require:true }
+        = submit_tag "Search",class:"btn btn-secondary"
+      =link_to home_car_path,class:" btn btn-default navbar-btn mx-1 btn-primary py-1" do  
+        %i.fa.fa-fw.fa-shopping-cart.fa-lg
       - if user_signed_in?
         = link_to destroy_user_session_path, method: :delete, class:"btn btn-default navbar-btn mx-1 btn-primary py-1" do 
           %i.fa.fa-fw.fa-bell-slash.fa-lg

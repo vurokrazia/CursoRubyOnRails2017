@@ -2,21 +2,100 @@
 *= require font-awesome
 *= require_self
 */
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+$theme-colors: (
+    primary: #880e4f,
+    secondary: #757de8,
+    info: #7043eb
+);
+
 @import "bootstrap";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Bitter|Spicy+Rice');
+/*
+
+    font-family: 'Spicy Rice', cursive;
+
+    font-family: 'Bitter', serif
+
+    Primary#880e4f
+    P — Light  #bc477b
+    P — Dark    #560027
+Secondary#3f51b5
+    S — Light #757de8
+    S — Dark  #002984
+Text on P#ffffff
+Text on S#ffffff
+*/
+*{
+    color:#000;
+}
+h1,h2,h3,h4,h5{
+    color:#3f51b5;
+}
 body{
-	
+	background-color: rgba(125, 128, 175, 0.973);
+}
+nav{
+    background-color: #880e4f;
+    a{
+        color:#FFF;
+    }
+    a:hover{
+        color: #525252;
+    }
+}
+h1,h2,h3,h4,h5{
+    font-family: 'Spicy Rice', cursive;
+}
+p{
+    text-align: justify;
+    font-family: 'Bitter', serif
+}
+
+.card{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.shadonw-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.shadonw-2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.shadonw-3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.shadonw-4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.shadonw-5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 .carousel-caption{
     padding:20px;
-    width:710px;
     position:relative;
-    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-    background: rgba(204, 204, 204, 0.5);
+    right:0px;
+    left:0px;
+    width:100%;
+    margin-top:-150px;
+    background-color:    hsla(236, 84%, 76%, 0.678);
+    color:#fff;
 }
-
-
+.fa{
+    color: #fff;
+}
 .caption-text{
 	opacity: 1 !important;
 	color: #000;
