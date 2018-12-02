@@ -10,6 +10,6 @@
 #
 
 class HasCategory < ApplicationRecord
-  belongs_to :product
-  belongs_to :category
+  belongs_to :product, :dependent => :destroy
+  belongs_to :category, :dependent => :destroy
 end

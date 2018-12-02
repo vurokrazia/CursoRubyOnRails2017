@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @products = Product.where("p_name LIKE :query", query: "%#{params[:find]}%")
   end
   def index
+    @products = Product.paginate(:page => params[:page], :per_page => 24)
   end
 
   def purchases
