@@ -152,7 +152,7 @@ nav{
 		a{
 			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
 		}
-	}
+	} 
 }
 .categories-show{
 	padding-top: 10px;
@@ -160,16 +160,16 @@ nav{
 	margin-bottom: 10px;
 }
 .pagination{
-    justify-content: center;
+		justify-content: center;
 }
 .flickr_pagination {
   justify-content: center;
   text-align: center;
   padding: 0.3em;
-  cursor: default; 
+	cursor: default; 
 }
 .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
-    padding: 0.2em 0.5em; 
+		padding: 0.2em 0.5em; 
 }
   .flickr_pagination .disabled {
     color: #aaaaaa; }
@@ -179,14 +179,14 @@ nav{
     color: #ff0084; }
   .flickr_pagination a {
     border: 1px solid #dddddd;
-    color: #0063dc;
+		color: #0063dc;
     text-decoration: none; }
     .flickr_pagination a:hover, .flickr_pagination a:focus {
       border-color: #003366;
       background: #0063dc;
       color: white; }
   .flickr_pagination .page_info {
-    color: #aaaaaa;
+    color: #b62727;
     padding-top: 0.8em; }
   .flickr_pagination .previous_page, .flickr_pagination .next_page {
     border-width: 2px; }
