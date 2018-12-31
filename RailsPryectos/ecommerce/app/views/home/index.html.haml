@@ -11,9 +11,6 @@
               %p.text-right
                 =link_to product, class:"btn btn-primary mx-1" do 
                   %i.fa.fa-fw.fa-eye.fa-lg
-                %button{ :id => "product_fav_#{product.id}", class:"btn btn-success mx-1 ", :onclick => "actions.addFav(this)"} 
-                  %i.fa.fa-fw.fa-gratipay.fa-lg
-                %button{:id => "product_car_#{product.id}", class:"btn btn-info mx-1", :onclick => "actions.addCar(this)"}
-                  %i.fa.fa-fw.fa-shopping-cart.fa-lg
+                =render "partials/buttons",product:product
     .flickr_pagination
       = will_paginate @products

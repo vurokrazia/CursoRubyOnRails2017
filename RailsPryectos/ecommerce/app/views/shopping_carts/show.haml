@@ -1,0 +1,21 @@
+/=render "payments/card_data"
+.card.large-padding
+	%table.table.table-striped.table-hover.medium#table_shopping_cart
+		%thead
+			%td Producto
+			%td Costo
+			%td Acciones
+		%tbody
+			-@shopping_cart.my_shopping_carts.each do |i_sh|
+				-product = i_sh.product
+				%tr{id: "#{product.id}"}
+					%td= product.p_name
+					%td= product.p_price
+					%td= link_to "Eliminar",i_sh,method: :delete
+	.top-space.large-padding.text-center#payment_form
+		%p.medium
+			%strong
+				Total: $
+				=@shopping_cart.total
+	.top-space
+		/=render "payments/buttons"

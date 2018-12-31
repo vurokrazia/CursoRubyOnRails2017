@@ -40,6 +40,16 @@
 #                          PUT    /users(.:format)                                  devise/registrations#update
 #                          DELETE /users(.:format)                                  devise/registrations#destroy
 #                          POST   /users(.:format)                                  devise/registrations#create
+#        my_shopping_carts POST   /my_shopping_carts(.:format)                      my_shopping_carts#create
+#         my_shopping_cart DELETE /my_shopping_carts/:id(.:format)                  my_shopping_carts#destroy
+#                favorites POST   /favorites(.:format)                              favorites#create
+#                 favorite DELETE /favorites/:id(.:format)                          favorites#destroy
+#                      pay POST   /pay(.:format)                                    payments#create
+#                     cart GET    /cart(.:format)                                   shopping_carts#show
+#              add_to_cart GET    /add/:product_id(.:format)                        my_shopping_carts#create
+#                 checkout GET    /checkout(.:format)                               payments#checkout
+#              home_search GET    /home/search(.:format)                            home#search
+#                 home_car GET    /home/car(.:format)                               home#car
 #           home_purchases GET    /home/purchases(.:format)                         home#purchases
 #             home_history GET    /home/history(.:format)                           home#history
 #           home_favorites GET    /home/favorites(.:format)                         home#favorites
@@ -57,6 +67,16 @@ Rails.application.routes.draw do
   end
   resources :categories
   devise_for :users
+  resources :my_shopping_carts, only: [:create,:destroy]
+  resources :favorites, only: [:create,:destroy]
+
+  post "/pay", to: "payments#create"
+
+  get "/cart", to: "shopping_carts#show"
+  get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create" 
+  get "/checkout", to: "payments#checkout"
+
+
   get 'home/search'
   get 'home/car'
   get 'home/purchases'

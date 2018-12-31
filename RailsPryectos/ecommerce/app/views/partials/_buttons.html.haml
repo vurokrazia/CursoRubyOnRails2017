@@ -1,0 +1,5 @@
+- if user_signed_in?
+  %button{ :id => "product_fav_#{product.id}", product:"#{product.id}", class:"btn btn-success mx-1 ", :onclick => "actions.addFav(this)"} 
+    %i.fa.fa-fw.fa-gratipay.fa-lg
+%button{:id => "product_car_#{product.id}", product:"#{product.id}", class:"btn btn-info mx-1", :onclick => "actions.addCart(this)"}
+  %i.fa.fa-fw.fa-shopping-cart.fa-lg

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, only: [:purchases, :favorites, :history]
   def search
     @products = Product.where("p_name LIKE :query", query: "%#{params[:find]}%")
   end
@@ -14,5 +14,6 @@ class HomeController < ApplicationController
   end
 
   def favorites
+    @favorites = current_user.favorites
   end
 end

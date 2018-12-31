@@ -39,7 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :street
       t.string :udi
       t.string :provider
-      t.integer :permission_level
+      t.integer :permision_level
 
       t.timestamps null: false
     end

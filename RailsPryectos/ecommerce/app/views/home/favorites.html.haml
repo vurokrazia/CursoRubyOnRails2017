@@ -7,13 +7,16 @@
           .card-body
             %h1.mb-3.text-center.text-capitalize= params[:action]
             %h3.mb-2.text-center Productos
-            %ul.list-group
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Disponibles
-                %span.badge.badge-pill.badge-primary 4
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Agotados
-                %span.badge.badge-primary.badge-pill 2
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Vendidos
-                %span.badge.badge-primary.badge-pill 1
+            .table-responsive
+              %table.table.table-hover
+                %tbody
+                  -@favorites.each do |favorite|
+                    %tr{:id => "p_#{favorite.id}"}
+                      %td.justify-content-between.align-items-center
+                        =favorite.product.p_name
+                      %td
+                        %span.badge.badge-pill.badge-primary.px-3.py-2{ product:"#{favorite.product.id}", class:"", :onclick => "actions.addCart(this)",:id => "c_#{favorite.id}"}
+                          %i.fa.fa-fw.fa-shopping-cart.fa-lg
+                      %td
+                        %span.badge.badge-pill.badge-primary.px-3.py-2{ product:"#{favorite.product.id}", class:"", :onclick => "actions.deleteFavorite(this,#{favorite.id})",:id => "f_#{favorite.id}"}
+                          %i.fa.fa-fw.fa-star.fa-lg

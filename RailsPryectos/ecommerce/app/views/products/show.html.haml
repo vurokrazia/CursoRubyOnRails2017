@@ -13,6 +13,8 @@
           %p= "En stock: #{@product.p_quantify}"
           %p= "Costo envio: #{@product.p_send}"
           %p= "Disponible: #{@product.p_available}"
+          %p.text-right
+            =render "partials/buttons",product: @product
         .col-md-4
           .row
             .col-12

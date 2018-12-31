@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: shopping_carts
+#
+#  id         :integer          not null, primary key
+#  status     :string
+#  ip         :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  ip: MyString
+
+two:
+  status: MyString
+  ip: MyString
