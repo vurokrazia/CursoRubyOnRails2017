@@ -37,8 +37,9 @@ var actions = {
       data.response = response 
       if(data.status == 200){
         document.getElementById('mycart').textContent = response.cart;
+        ap_accions.toast_alert("success", data.response.response, 2000)
       } else {
-        alert(response.products[0])
+        ap_accions.toast_alert("error", response.products[0] , 2000)
       }
     })
     .catch(console.log)
@@ -71,9 +72,9 @@ var actions = {
     .then( result => {
       data.result = result 
       if(data.status == 200){
-        alert(data.result.response)
+        ap_accions.toast_alert("success", data.result.response, 2000)
       } else {
-        alert(result.favorites[0])
+        ap_accions.toast_alert("error", result.favorites[0], 2000)
       }
     })
     .catch(console.log)
@@ -103,8 +104,9 @@ var actions = {
         data.element.style.display = "none"        
         document.getElementById('mycartTotal').textContent = data.total - data.product.p_price
         document.getElementById('mycart').textContent = response.cart;
+        ap_accions.toast_alert("success", response.response, 1000)
       } else {
-        alert(response.products[0])
+        ap_accions.toast_alert("error", response.products[0], 1000)
       }
     })
     .catch(console.log)
@@ -128,10 +130,10 @@ var actions = {
     })
     .then( result => {
       if(data.status == 200){
-        alert(result.response)
+        ap_accions.toast_alert("success", result.response, 1000)
         data.element.style.display = "none"
       } else {
-        alert(result.products[0])
+        ap_accions.toast_alert("success", result.products[0], 1000)
       }
     })
     .catch(console.log)

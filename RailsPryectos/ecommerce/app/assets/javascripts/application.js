@@ -16,3 +16,18 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require car
+
+var ap_data = {
+
+}
+var ap_accions = {
+  toast_alert(type, title, timer){
+    Swal({
+      position: 'top-end',
+      type: type,
+      title: title,
+      showConfirmButton: false,
+      timer: timer
+    })
+  }
+}
