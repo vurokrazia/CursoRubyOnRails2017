@@ -17,7 +17,7 @@
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  name                   :string
-#  permission_level       :integer          default(0)
+#  permision_level        :integer          default(0)
 #  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime

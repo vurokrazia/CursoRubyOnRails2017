@@ -7,7 +7,7 @@ class CreateMyPayments < ActiveRecord::Migration[5.1]
       t.decimal :price
       t.string :paypal_id
       t.decimal :total
-      t.references :my_shopping_cart, foreign_key: true
+      t.references :shopping_cart, foreign_key: true
 
       t.timestamps
     end

@@ -2,20 +2,20 @@
 #
 # Table name: my_payments
 #
-#  id                  :integer          not null, primary key
-#  email               :string
-#  ip                  :string
-#  price               :decimal(, )
-#  status              :string
-#  total               :decimal(, )
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  my_shopping_cart_id :integer
-#  paypal_id           :string
+#  id               :integer          not null, primary key
+#  email            :string
+#  ip               :string
+#  price            :decimal(, )
+#  status           :string
+#  total            :decimal(, )
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  paypal_id        :string
+#  shopping_cart_id :integer
 #
 # Indexes
 #
-#  index_my_payments_on_my_shopping_cart_id  (my_shopping_cart_id)
+#  index_my_payments_on_shopping_cart_id  (shopping_cart_id)
 #
 
 require 'test_helper'

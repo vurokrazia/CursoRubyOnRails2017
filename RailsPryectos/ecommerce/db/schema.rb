@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20181231034752) do
     t.decimal "price"
     t.string "paypal_id"
     t.decimal "total"
-    t.integer "my_shopping_cart_id"
+    t.integer "shopping_cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["my_shopping_cart_id"], name: "index_my_payments_on_my_shopping_cart_id"
+    t.index ["shopping_cart_id"], name: "index_my_payments_on_shopping_cart_id"
   end
 
   create_table "my_shopping_carts", force: :cascade do |t|
@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20181231034752) do
     t.string "street"
     t.string "udi"
     t.string "provider"
-    t.integer "permission_level", default: 0
+    t.integer "permision_level", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

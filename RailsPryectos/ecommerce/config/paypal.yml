@@ -14,7 +14,7 @@ test: &default
   signature: AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy
   # # With Certificate
   # cert_path: "config/cert_key.pem"
-  sandbox_email_address: Platform.sdk.seller@gmail.com
+  sandbox_email_address: jesus.alberto.vk-facilitator@gmail.com
 
   # # IP Address
   # ip_address: 127.0.0.1
@@ -23,9 +23,11 @@ test: &default
 
 development:
   <<: *default
+    # Credentials for REST APIs
   client_id: AecZ3DppLopmGyfIiKz5zyj1Dq8ds9RvTiACsg8zo1p12L7L6Cz87b-oFyHm8TxELma_H8wfvF2hUXE8
   client_secret: ELlKhFbfFO8YN9GM3ek4Q-w-Kks541j1ppWGqDM2vq8odu4RUtIMbFuX0gJYKph1nFLKSmEtEZFYON0g
-
 production:
   <<: *default
   mode: live
+
+  

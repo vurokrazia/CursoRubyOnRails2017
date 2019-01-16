@@ -9,7 +9,7 @@
 u = User.first
 @categories = []
 10.times do |t|
-  c = Category.create(name:"Categoria #{t}")
+  c = Category.create(name:"Categoria #{t}",description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed blandit nulla. Aliquam iaculis libero id viverra fermentum. Aenean et ornare diam, ac dictum lorem. Vivamus justo leo, malesuada id sapien et, blandit euismod risus. Etiam in felis pretium, ultricies metus ac, lobortis nulla. Aenean accumsan fringilla nisi, vel semper nisi auctor ut. Sed at nisl sed libero venenatis semper. Suspendisse a turpis augue. Morbi sagittis magna odio, id hendrerit ligula gravida in. Proin auctor sagittis leo quis elementum. Integer ullamcorper commodo mi nec congue. Praesent imperdiet at sem a lacinia. Nam ut eros et ipsum pellentesque bibendum pellentesque sed ante. In eget dui sapien. Cras commodo metus non mattis viverra. Sed sodales augue quis sagittis porttitor. Proin sit amet felis eget ex aliquet rutrum sed et nunc. Fusce ullamcorper tempor neque eu pharetra.")
   30.times do |tt|
     p = Product.new(
       p_name:"Producto #{tt}",

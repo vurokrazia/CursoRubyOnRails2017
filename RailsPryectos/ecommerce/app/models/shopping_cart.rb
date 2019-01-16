@@ -3,8 +3,8 @@
 # Table name: shopping_carts
 #
 #  id         :integer          not null, primary key
-#  status     :string
 #  ip         :string
+#  status     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -37,9 +37,9 @@ class ShoppingCart < ActiveRecord::Base
 	end
 
 	def generate_links
-		self.products.each do |product|
-			Link.create(expiration_date: DateTime.now + 7.days, product: product,email: payment.email)
-		end
+		#self.products.each do |product|
+		#	Link.create(expiration_date: DateTime.now + 7.days, product: product,email: payment.email)
+		#end
 	end
 
 	def items
