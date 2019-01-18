@@ -35,6 +35,5 @@ class ApplicationController < ActionController::Base
 			rescue ActiveRecord::RecordNotFound => e
 				@shopping_cart = ShoppingCart.create!(ip: request.remote_ip)
 				cookies[:shopping_cart_id] = @shopping_cart.id
-  	
     end
 end

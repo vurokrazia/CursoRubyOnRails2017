@@ -19,9 +19,9 @@
 #
 
 class MyPayment < ApplicationRecord
-  belongs_to :shopping_cart
-  has_many :products, through: :shopping_cart
 	include AASM
+  belongs_to :shopping_cart, :dependent => :destroy
+  has_many :products, through: :shopping_cart
 
 	aasm column: "status" do
 		state :created, initial: true

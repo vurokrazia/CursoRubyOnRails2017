@@ -11,9 +11,9 @@
 
 class ShoppingCart < ActiveRecord::Base
 	include AASM
-	has_many :my_shopping_carts
+	has_many :my_shopping_carts, :dependent => :destroy
 	has_many :products, through: :my_shopping_carts
-	has_many :my_payments
+	has_many :my_payments, :dependent => :destroy
 	
 	aasm column: "status" do
 		state :created, initial: true
@@ -22,7 +22,7 @@ class ShoppingCart < ActiveRecord::Base
 
 		event :pay do
 			after do
-				self.generate_links()
+				#self.generate_links()
 			end
 			transitions from: :created, to: :payed
 		end

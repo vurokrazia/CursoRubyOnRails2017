@@ -44,13 +44,9 @@ class PaymentsController < ApplicationController
 				:cancel_url => "http://localhost:3000/home/car" },
 			:transactions =>  [{
 				:item_list => {
-					:items => [{
-						:name => "item",
-						:sku => "item",
-						:price => (@shopping_cart.total/100),
-						:currency => "USD",
-						:quantity => 1 }
-					]},
+					:items => 
+					@shopping_cart.items
+				},
 				:amount =>  {
 					:total =>  (@shopping_cart.total/100),
 					:currency =>  "USD" },

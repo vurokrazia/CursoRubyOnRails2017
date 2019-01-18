@@ -38,7 +38,9 @@ class Product < ApplicationRecord
   def getCategories
 		@categories
   end  
-
+  def paypal_form
+  	{name: p_name,sku: :item, price: (p_price / 100),currency:"USD",quantity:1 }
+  end
   private
   def save_categories
   	@categories.each do |category_id|
