@@ -29,5 +29,5 @@ class MyShoppingCart < ApplicationRecord
 		if product.p_quantify < my_shopping_cart.count
 			errors.add(:products, "Ah registrado todas las unidades disponibles")
 		end
-	end
+  end
 end

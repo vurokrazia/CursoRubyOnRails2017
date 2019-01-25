@@ -2,5 +2,4 @@
 	=button_to "/pay",method: :post,class:"payment-btn paypal-btn no-margin" do
 		Pagar con Paypal
 .col-sm-4.col-md-3.inline-block
-	=content_tag :button,class:"payment-btn card-btn no-margin" do
-		Pagar con tarjeta
+	=#content_tag :button,class:"payment-btn card-btn no-margin" do Pagar con tarjeta

@@ -1,5 +1,8 @@
 var data = {
   token: document.getElementsByName('csrf-token')[0].content,
+  my_cart: Array(),
+  cart_id: null,
+  products: null,
   product: null,
   btn: null,
   message: "",
@@ -91,7 +94,13 @@ var actions = {
           'X-CSRF-Token': data.token,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        }
+        },
+        body:
+          JSON.stringify(
+            {
+              "cart_id":data.cart_id
+            }
+          )
       }
     )
     .then( response => {
@@ -101,7 +110,10 @@ var actions = {
     .then( response => {
       if(data.status == 200){
         data.product = response.product
-        data.element.style.display = "none"        
+        if (response.update_cart == 0)
+          data.element.style.display = "none"        
+        else
+          data.element.children[2].textContent = response.update_cart
         document.getElementById('mycartTotal').textContent = data.total - data.product.p_price
         document.getElementById('mycart').textContent = response.cart;
         ap_accions.toast_alert("success", response.response, 1000)
@@ -137,8 +149,17 @@ var actions = {
       }
     })
     .catch(console.log)
+  },
+  order_cart() {
+    for (let index = 0; index < data.products.length; index++) {
+      const row = data.products[index];
+      console.log(row.children[2].innerText);
+    }    
   }
 }
 $(document).ready(function(){
   data.cart = parseInt(document.getElementById('mycart').textContent)  
+  data.products = document.getElementById("my_cart").children
+  data.cart_id = document.getElementById("my_cart").getAttribute("cart_id")
+  actions.order_cart()
 })

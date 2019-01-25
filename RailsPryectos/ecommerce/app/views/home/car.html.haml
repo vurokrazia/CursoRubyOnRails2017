@@ -10,15 +10,16 @@
                 %thead
                   %td Producto
                   %td Costo
+                  %td Unidades
                   %td Acciones
-                %tbody
-                  -@shopping_cart.my_shopping_carts.each do |i_sh|
-                    -product = i_sh.product
-                    %tr{id: "p_#{i_sh.id}"}
-                      %td= product.p_name
-                      %td= product.p_price
+                %tbody{id: "my_cart", cart_id: "#{@shopping_cart.id}"}
+                  -@shopping_cart.in_cart.each do |product|
+                    %tr{id: "p_#{product[:id]}"}
+                      %td= product[:name]
+                      %td= product[:price]
+                      %td= product[:quantity]
                       %td
-                        %a.btn.btn-danger{:product => "#{product.id}", :onclick => "actions.deleteItem(this,#{i_sh.id})"}
+                        %a.btn.btn-danger{:product => "#{product[:id]}", :onclick => "actions.deleteItem(this,#{product[:id]})"}
                           Eliminar
             .top-space.large-padding.text-center#payment_form
               %p{:style => "text-align: right;margin-right:100px;" }
@@ -26,4 +27,5 @@
                 %strong.medium#mycartTotal  
                   =@shopping_cart.total
             .top-space
-              =render "payments/buttons"
+              - if @shopping_cart.total > 0
+                =render "payments/buttons"

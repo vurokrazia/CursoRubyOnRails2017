@@ -42,6 +42,20 @@ class ShoppingCart < ActiveRecord::Base
 		#end
 	end
 
+	def in_cart
+		products = Array.new
+		size = -1
+		self.products.order("id ASC").each do |product|
+			if size == -1 || products[size][:id] != product[:id]
+				products.push(product.paypal_form)
+			else
+				products[size][:quantity] += 1
+			end
+			size = products.length - 1
+		end
+		return products
+	end
+
 	def items
 		self.products.map{|product| product.paypal_form  }
 	end
