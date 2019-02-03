@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180722231926) do
+ActiveRecord::Schema.define(version: 20190129023438) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20180722231926) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_has_categories_on_category_id"
     t.index ["product_id"], name: "index_has_categories_on_product_id"
+  end
+
+  create_table "my_shopping_carts", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "shopping_cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_my_shopping_carts_on_product_id"
+    t.index ["shopping_cart_id"], name: "index_my_shopping_carts_on_shopping_cart_id"
   end
 
   create_table "myimages", force: :cascade do |t|
@@ -56,6 +65,13 @@ ActiveRecord::Schema.define(version: 20180722231926) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.string "ip"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

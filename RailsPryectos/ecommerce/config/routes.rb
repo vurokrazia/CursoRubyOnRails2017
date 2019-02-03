@@ -57,6 +57,10 @@ Rails.application.routes.draw do
   end
   resources :categories
   devise_for :users
+
+  resources :my_shopping_carts, only: [:create,:destroy]
+  get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create" 
+
   get 'home/search'
   get 'home/car'
   get 'home/purchases'

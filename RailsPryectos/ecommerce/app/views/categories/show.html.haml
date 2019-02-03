@@ -18,7 +18,7 @@
             .col-3
               =image_tag @category.c_img, class: "img-fluid"
   .row
-    -@category.products.each do |product|
+    -@products.each do |product|
       .col-md-4.my-5
         .card.h-100
           .card-body
@@ -28,3 +28,5 @@
               =link_to "Show",product,class:"btn btn-info my-3"
               -if can? :update, product
                 =link_to "Editar",edit_product_path(product),class:"btn btn-info my-3"
+  .flickr_pagination
+    = will_paginate @products

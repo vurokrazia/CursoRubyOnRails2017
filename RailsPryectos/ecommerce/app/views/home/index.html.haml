@@ -1,0 +1,19 @@
+.py-5
+  .container-fluid
+    %p#ejemplo
+    %p.ejemplo
+    %p.ejemplo
+    .row
+      -@products.each do |product|
+        .col-md-3.col-sm-12.my-3
+          .card
+            - if !product.myimages.first.nil?
+              =image_tag product.myimages.first.img, class:"card-img-top"
+            .card-body
+              %h1.text-center.card-title= product.p_name
+              %p.text-right
+                =link_to product, class:"btn btn-primary mx-1" do 
+                  %i.fa.fa-fw.fa-eye.fa-lg
+                =render "partials/buttons",product:product
+    .flickr_pagination
+      = will_paginate @products
