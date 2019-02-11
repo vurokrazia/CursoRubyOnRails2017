@@ -23,7 +23,8 @@
         = text_field_tag "find", nil , html: { require:true }
         = submit_tag "Search",class:"btn btn-secondary"
       =link_to home_car_path,class:" btn btn-default navbar-btn mx-1 btn-primary py-1" do  
-        %i.fa.fa-fw.fa-shopping-cart.fa-lg
+        %i.fa.fa-fw.fa-shopping-cart.fa-lg#mycart.text-white
+          = @shopping_cart.products.count
       - if user_signed_in?
         = link_to destroy_user_session_path, method: :delete, class:"btn btn-default navbar-btn mx-1 btn-primary py-1" do 
           %i.fa.fa-fw.fa-bell-slash.fa-lg

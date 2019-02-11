@@ -59,6 +59,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :my_shopping_carts, only: [:create,:destroy]
+  resources :favorites, only: [:create,:destroy]
+
   get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create" 
 
   get 'home/search'
