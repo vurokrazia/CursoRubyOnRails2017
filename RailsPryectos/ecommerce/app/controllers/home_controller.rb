@@ -16,4 +16,7 @@ class HomeController < ApplicationController
   def favorites
     @favorites = current_user.favorites
   end
+  def car
+    
+  end
 end

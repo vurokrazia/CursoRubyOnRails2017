@@ -76,7 +76,44 @@ var actions = {
     .catch(console.log)
   },
   deleteItem(e,fila){
-    
+    datos.total   = parseInt(document.getElementById('mycartTotal').textContent)
+    datos.product = parseInt(e.getAttribute("product"))
+    datos.element = document.getElementById("p_" + fila)
+    fetch('/my_shopping_carts/' + fila,
+      {
+        method: 'DELETE',
+        headers: {           
+          'X-CSRF-Token': datos.token,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body:
+          JSON.stringify(
+            {
+              "cart_id":datos.cart_id
+            }
+          )
+      }
+    )
+    .then( response => {
+      datos.status = response.clone().status
+      return response.json()
+    })
+    .then( response => {
+      if(datos.status == 200){
+        datos.product = response.product
+        if (response.update_cart == 0)
+          datos.element.style.display = "none"        
+        else
+          datos.element.children[2].textContent = response.update_cart
+        document.getElementById('mycartTotal').textContent = parseFloat(datos.total - datos.product.p_price)
+        document.getElementById('mycart').textContent = response.cart;
+        ap_accions.toast_alert("success", response.response, 500)
+      } else {
+        ap_accions.toast_alert("error", response.products[0], 1000)
+      }
+    })
+    .catch(console.log)
   },
   deleteFavorite(e,fila){
     datos.product = parseInt(e.getAttribute("product"))
@@ -110,4 +147,6 @@ var actions = {
 
 $(document).ready(function(){
   datos.cart = parseInt(document.getElementById('mycart').textContent)  
+  if(document.getElementById("my_cart") != null)
+    datos.cart_id = document.getElementById("my_cart").getAttribute("cart_id")
 })

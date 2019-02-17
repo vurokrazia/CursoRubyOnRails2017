@@ -61,6 +61,10 @@ Rails.application.routes.draw do
   resources :my_shopping_carts, only: [:create,:destroy]
   resources :favorites, only: [:create,:destroy]
 
+  post "/pay", to: "payments#create"
+  get "/checkout", to: "payments#checkout"
+
+
   get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create" 
 
   get 'home/search'
