@@ -1,0 +1,22 @@
+.py-5
+  .container
+    .row
+      .col-md-12
+        .card.p-2
+          .card-body
+            %h1.mb-3.text-center.text-capitalize= params[:controller]
+            %h3.mb-2.text-center="Venta #{(@payment.paypal_id[6,20])}" 
+            %p=link_to "Descargar",payment_path(@payment, :format => 'pdf'), target: :_blank
+            %table.table
+              %thead
+                %tr
+                  %td Nombre
+                  %td Precio
+                  %td Unidades
+              - @payment.shopping_cart.in_cart.each do |product|
+                %tbody
+                  %tr
+                    %td=product[:name]
+                    %td=product[:price]
+                    %td=product[:quantity]
+                  

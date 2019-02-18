@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
+      <h1 class="display">Venta</h1>
+      <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                Número de Compra
+              </td>
+              <td>
+                <%=@payment.id%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Fecha de compra
+              </td>
+              <td>
+                <%=@payment.created_at.strftime("%d-%m-%Y")%>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Unidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @payment.shopping_cart.in_cart.each do |product| %>
+              <tr>
+                <td>
+                  <%=product[:name]%>
+                </td>
+                <td>
+                  <%=product[:price] * product[:quantity]%>
+                </td>
+                <td>
+                  <%=product[:quantity]%>
+                </td>
+              </tr>
+            <%end%>
+            <tr>
+              <td>
+                Total:
+              </td>
+              <td>
+                <%=@payment.shopping_cart.total/100%>
+              </td>
+              <td>
+                <%=@payment.shopping_cart.my_shopping_carts.count%>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

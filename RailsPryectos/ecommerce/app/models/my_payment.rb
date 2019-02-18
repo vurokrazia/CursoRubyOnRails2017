@@ -12,14 +12,17 @@
 #  updated_at       :datetime         not null
 #  paypal_id        :string
 #  shopping_cart_id :integer
+#  user_id          :integer
 #
 # Indexes
 #
 #  index_my_payments_on_shopping_cart_id  (shopping_cart_id)
+#  index_my_payments_on_user_id           (user_id)
 #
 
 class MyPayment < ApplicationRecord
 	include AASM
+	belongs_to :user
   belongs_to :shopping_cart, :dependent => :destroy
   has_many :products, through: :shopping_cart
 
@@ -33,10 +36,5 @@ class MyPayment < ApplicationRecord
 			end
 			transitions from: :created, to: :payed
 		end
-	end
-
-
-	def products_by_user(user)
-		self.products.where(products:{user_id:user.id})
 	end
 end

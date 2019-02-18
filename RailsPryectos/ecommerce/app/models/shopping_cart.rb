@@ -36,17 +36,11 @@ class ShoppingCart < ActiveRecord::Base
 		end
 	end
 
-	def generate_links
-		#self.products.each do |product|
-		#	Link.create(expiration_date: DateTime.now + 7.days, product: product,email: payment.email)
-		#end
-	end
-
 	def in_cart
 		products = Array.new
-		size = -1
+		size = 0
 		self.products.order("id ASC").each do |product|
-			if size == -1 || products[size][:id] != product[:id]
+			if products.empty? || products[size][:id] != product[:id]
 				products.push(product.paypal_form)
 			else
 				products[size][:quantity] += 1
@@ -63,6 +57,4 @@ class ShoppingCart < ActiveRecord::Base
 	def total
 		products.sum(:p_price)
 	end
-
-
 end

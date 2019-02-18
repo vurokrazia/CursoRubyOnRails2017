@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create,:destroy]
 
   post "/pay", to: "payments#create"
+  resources :payments, only: [:show]
 
   get "/cart", to: "shopping_carts#show"
   get "/add/:product_id", as: :add_to_cart, to: "my_shopping_carts#create" 

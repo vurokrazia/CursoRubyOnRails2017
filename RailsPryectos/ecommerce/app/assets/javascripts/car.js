@@ -98,7 +98,8 @@ var actions = {
         body:
           JSON.stringify(
             {
-              "cart_id":data.cart_id
+              "cart_id":data.cart_id,
+              "product_id":fila
             }
           )
       }

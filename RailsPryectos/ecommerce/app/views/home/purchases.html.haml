@@ -8,12 +8,7 @@
             %h1.mb-3.text-center.text-capitalize= params[:action]
             %h3.mb-2.text-center Productos
             %ul.list-group
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Disponibles
-                %span.badge.badge-pill.badge-primary 4
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Agotados
-                %span.badge.badge-primary.badge-pill 2
-              %li.list-group-item.d-flex.justify-content-between.align-items-center
-                Vendidos
-                %span.badge.badge-primary.badge-pill 1
+              - @payments.each do |pay|
+                %li.list-group-item.d-flex.justify-content-between.align-items-center
+                  %p="Compra #{pay.paypal_id}"
+                  =link_to "Ver más",payment_path(pay),class:"btn btn-warning"
