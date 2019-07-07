@@ -4,6 +4,11 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+#pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'paypal-sdk-rest'
 gem 'will_paginate'
 gem 'cancancan', '~> 2.0'

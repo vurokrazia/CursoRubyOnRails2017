@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
+      <div class="jumbotron">
+        <h1 class="display-4">Venta <%= @payment.paypal_id[6,20] %></h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eu accumsan nibh. Fusce sodales, ante nec consectetur consectetur, leo justo varius massa, ac convallis tellus sapien vitae ante. Quisque et arcu eget ex mollis semper a aliquet enim. Suspendisse venenatis cursus sagittis. Aenean hendrerit arcu sed venenatis facilisis. Praesent sit amet nisl in diam lobortis condimentum nec non velit. Praesent posuere ante vel pharetra dictum. Suspendisse eget dui ultrices, gravida lorem in, condimentum mauris. Morbi id ligula placerat, molestie ligula nec, gravida odio.
+          Curabitur ultricies sodales ultricies. Nunc semper, nisl rhoncus aliquam elementum, lacus ante tristique erat, ac eleifend ipsum mi in risus. Vivamus ornare sem pulvinar facilisis mollis. Aliquam turpis urna, tempus eu leo vitae, vulputate aliquet nibh. Sed at lectus tortor. Suspendisse ligula ante, fringilla ut facilisis sit amet, fringilla convallis est. Pellentesque elementum malesuada sodales. Nullam in nulla eu nunc facilisis rhoncus. Proin cursus, massa nec posuere iaculis, ante nibh rhoncus odio, vel vehicula metus justo et lectus. Duis eu libero commodo, dignissim purus non, laoreet nibh. Nullam gravida ornare laoreet. Suspendisse nec magna sed est venenatis semper quis eu libero. Morbi mattis urna eleifend dignissim imperdiet. Donec commodo rhoncus tincidunt.
+          Donec blandit nibh in lacinia ultricies. Nulla nec placerat leo, a ullamcorper felis. Vestibulum vel dignissim tortor. Nullam id lectus mi. Nulla eu sagittis nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec quis molestie urna. Cras non pellentesque sem, a hendrerit tellus.
+          Nullam gravida, diam at tincidunt luctus, neque nulla dictum urna, non consectetur dolor velit ac nunc. Donec consectetur arcu ut porttitor gravida. Nunc eu massa vitae dui iaculis pulvinar sit amet egestas quam. Morbi pretium velit id venenatis tincidunt. Nulla porta, orci ut convallis dignissim, erat nisi dignissim orci, a lacinia nulla risus sit amet odio. Sed et odio iaculis, bibendum dolor a, gravida dolor. Donec finibus ac eros quis elementum. Donec aliquet purus ipsum, convallis commodo nisl commodo sed.
+          Maecenas tristique mi ipsum, eu mollis odio tincidunt id. Praesent vestibulum pharetra cursus. Mauris tempor, eros sed cursus faucibus, velit felis ultrices est, a pellentesque ipsum sem et lacus. In ex sapien, euismod vel mattis vel, dapibus nec augue. Phasellus vel pharetra purus, id scelerisque elit. Sed vel faucibus leo. Nulla faucibus varius neque non rhoncus.
+          </p>
+        <a class="btn btn-primary btn-lg" href="https://www.google.com" role="button">google</a>
+      </div>
+      <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                Número de Compra
+              </td>
+              <td>
+                <%=@payment.id%>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Fecha de compra
+              </td>
+              <td>
+                <%=@payment.created_at.strftime("%d-%m-%Y")%>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="col-xs-12 col-sm-10 offset-md-1 col-md-8 offset-md-2">
+      <div class="jumbotron">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Unidades</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @payment.shopping_cart.in_cart.each do |product| %>
+                <tr>
+                  <td>
+                    <%=product[:name]%>
+                  </td>
+                  <td>
+                    <%=product[:price] * product[:quantity]%>
+                  </td>
+                  <td>
+                    <%=product[:quantity]%>
+                  </td>
+                </tr>
+              <%end%>
+              <tr>
+                <td>
+                  Total:
+                </td>
+                <td>
+                  <%=@payment.shopping_cart.total/100%>
+                </td>
+                <td>
+                  <%=@payment.shopping_cart.my_shopping_carts.count%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>

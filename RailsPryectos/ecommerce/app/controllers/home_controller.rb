@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def purchases
+    @payments = current_user.my_payments
   end
 
   def history

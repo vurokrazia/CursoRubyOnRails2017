@@ -43,4 +43,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :products
   has_many :favorites
+  has_many :my_payments
 end
