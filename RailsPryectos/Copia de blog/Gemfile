@@ -9,7 +9,7 @@ gem 'truncate_html', '~> 0.9.3'
 # Editor trix
 gem 'trix'
 # Usuarios
-gem 'devise', '~> 4.3.0'
+gem 'devise', '~> 4.7.1'
 #Imagenes
 gem "paperclip", "~> 5.2.1"
 #Paginador
